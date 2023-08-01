@@ -2,11 +2,13 @@
   "name": "express-ts-blog-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "build": "tsc",
+    "dev": "ts-node src/index.ts"
   },
   "husky": {
     "hooks": {
@@ -14,7 +16,11 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": ["eslint --fix", "prettier --write", "git add"]
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -29,11 +35,13 @@
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "mongodb": "^5.7.0",
     "mongoose": "^7.4.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   },
   "devDependencies": {
+    "dotenv": "^16.3.1",
     "eslint": "^8.46.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
