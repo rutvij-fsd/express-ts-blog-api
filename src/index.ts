@@ -3,7 +3,7 @@ import express, { Express, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import connectDB from './services/db.service';
-
+import blogRoutes from './routes/blog.routes';
 
 const app: Express = express();
 
@@ -15,7 +15,7 @@ app.use(cors());
 connectDB();
 
 // Routes
-
+app.use('/api', blogRoutes);
 
 // Error handling middleware
 app.use((err: Error, req: Request, res: Response) => {
